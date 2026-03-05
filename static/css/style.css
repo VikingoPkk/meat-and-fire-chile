@@ -33,7 +33,7 @@ h1, h2, h3, h5 {
     left: 0; 
     width: 100%; 
     height: 100%;
-    background: rgba(0, 0, 0, 0.6); /* Oscurece la imagen para legibilidad */
+    background: rgba(0, 0, 0, 0.6); 
     z-index: 1;
 }
 
@@ -42,57 +42,121 @@ h1, h2, h3, h5 {
     z-index: 2;
 }
 
-/* Estilo para las fotos de los Chefs (Grilla) */
+/* --- SECCIÓN EXPERIENCIA MODERNA (VANGUARDISTA) --- */
+.experience-section {
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Efecto Parallax suave */
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.experience-card {
+    background: rgba(10, 10, 10, 0.5); /* Negro profundo transparente */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px); /* Desenfoque intenso moderno */
+    -webkit-backdrop-filter: blur(15px);
+    max-width: 950px;
+    border-radius: 4px;
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.experience-card:hover {
+    background: rgba(0, 0, 0, 0.85); 
+    border: 1px solid rgba(255, 193, 7, 0.5); 
+    transform: translateY(-5px); 
+    box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+}
+
+.experience-text {
+    font-family: 'Open Sans', 'Roboto', sans-serif; 
+    color: rgba(255, 255, 255, 0.7); 
+    font-size: 1.05rem;
+    line-height: 1.9;
+    letter-spacing: 0.5px;
+    font-weight: 300;
+    transition: all 0.5s ease;
+}
+
+.experience-card:hover .experience-text {
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 0 0 5px rgba(255,255,255,0.2);
+}
+
+.experience-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #ffc107;
+    transition: all 0.5s ease;
+}
+
+.experience-card:hover .experience-title {
+    color: #ffffff;
+    text-shadow: 0 0 15px rgba(255, 193, 7, 0.8);
+}
+
+/* --- LINE UP DE CHEFS --- */
 .chef-card {
     border: none;
     background: none;
-    padding: 10px;
+    padding: 15px;
     text-align: center;
     transition: transform 0.3s ease;
 }
 
-.chef-card img {
-    filter: grayscale(100%);
-    transition: all 0.5s ease;
+.chef-img {
+    filter: grayscale(0%) !important;
+    border: 3px solid #ffc107;
+    box-shadow: 0 0 15px rgba(255, 193, 7, 0.4);
+    transition: all 0.4s ease;
     object-fit: cover;
-    height: 400px;
+    height: 350px;
     width: 100%;
     display: block;
 }
 
-.chef-card:hover {
-    transform: scale(1.02);
+.chef-card:hover .chef-img {
+    transform: scale(1.03);
+    box-shadow: 0 0 25px rgba(255, 193, 7, 0.7);
 }
 
-.chef-card:hover img {
-    filter: grayscale(0%);
-    transform: scale(1.05);
+.chef-name-box {
+    background-color: #ffc107;
+    padding: 10px;
+    margin-top: -15px;
+    position: relative;
+    z-index: 3;
+    display: inline-block;
+    width: 90%;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
 .chef-card h5 {
-    margin-top: 15px;
+    color: #000 !important;
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 900;
     letter-spacing: 1px;
-    font-size: 1.2rem;
-    color: #ffffff;
 }
 
-.chef-card small {
+.chef-specialty {
     color: #ffc107;
     text-transform: uppercase;
     font-weight: bold;
+    font-size: 0.8rem;
+    margin-top: 10px;
+    display: block;
 }
 
-/* Botones personalizados */
-.btn-outline-light {
-    border-radius: 0;
-    border-width: 2px;
-    padding: 12px 30px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    transition: 0.3s;
-}
-
-/* Sección de Tickets */
+/* --- SECCIÓN DE TICKETS --- */
 .tickets-container {
     background-color: #e3511b;
     padding: 60px 0;
@@ -119,9 +183,7 @@ h1, h2, h3, h5 {
     margin: 10px 0;
 }
 
-/* --- REGLAS DE ESTÉTICA ACTUALIZADAS --- */
-
-/* Ajuste de tipografía masiva para el Hero */
+/* --- ESTÉTICA HERO --- */
 .hero-section h2 {
     letter-spacing: 8px; 
     font-size: 4.5rem; 
@@ -130,48 +192,50 @@ h1, h2, h3, h5 {
     text-shadow: 2px 2px 20px rgba(0,0,0,0.8);
 }
 
-/* Efecto de suavizado para el logo central */
 .hero-section img {
     filter: drop-shadow(0 0 15px rgba(0,0,0,0.5));
     transition: transform 0.5s ease;
 }
 
-.hero-section img:hover {
-    transform: scale(1.05);
-}
-
-/* Cápsula de Navegación más grande y con borde amarillo */
 .nav-capsule {
     backdrop-filter: blur(10px); 
-    border: 2px solid #ffc107; /* Borde amarillo fuego */
-    box-shadow: 0 0 15px rgba(255, 193, 7, 0.3); /* Resplandor amarillo suave */
+    border: 2px solid #ffc107; 
+    box-shadow: 0 0 15px rgba(255, 193, 7, 0.3);
 }
 
-/* Animación de Pulso para el Botón Entradas */
+/* --- EFECTO BANNER PANORÁMICO (VANGUARDISTA) --- */
+.full-width-banner img {
+    transition: transform 0.8s ease;
+    filter: brightness(0.9);
+}
+
+.full-width-banner:hover img {
+    transform: scale(1.02);
+    filter: brightness(1.1);
+}
+
 @keyframes pulse {
-    0% {
-        box-shadow: 0 0 0 0 rgba(227, 81, 27, 0.7);
-    }
-    70% {
-        box-shadow: 0 0 0 10px rgba(227, 81, 27, 0);
-    }
-    100% {
-        box-shadow: 0 0 0 0 rgba(227, 81, 27, 0);
-    }
+    0% { box-shadow: 0 0 0 0 rgba(227, 81, 27, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(227, 81, 27, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(227, 81, 27, 0); }
 }
 
 .btn-pulse {
     animation: pulse 2s infinite;
 }
 
-/* Comportamiento en móviles */
+/* --- RESPONSIVE --- */
 @media (max-width: 768px) {
     .hero-section h2 {
         font-size: 1.8rem !important;
         letter-spacing: 3px !important;
     }
-    .nav-capsule {
-        padding: 5px 15px !important;
+    .experience-card {
+        padding: 20px !important;
+        margin: 20px;
+    }
+    .experience-text {
+        font-size: 0.95rem;
     }
     .ticket-price {
         font-size: 2.5rem;

@@ -22,14 +22,28 @@
             <img src="{% static 'img/logo_meat_fire.png' %}" class="img-fluid mb-4" style="max-width: 280px;" alt="Meat and Fire Logo">
             
             <div class="position-absolute bottom-0 mb-5 w-100 text-center">
-    <h2 class="text-white text-uppercase" style="letter-spacing: 8px; font-size: 4.5rem; font-weight: 900; line-height: 1;">
-        La Gastronomía del <span style="color: #ffc107; text-shadow: 0 0 20px rgba(255, 193, 7, 0.5);">Fuego</span>
-    </h2>
-</div>
+                <h2 class="text-white text-uppercase" style="letter-spacing: 8px; font-size: 4.5rem; font-weight: 900; line-height: 1;">
+                    La Gastronomía del <span style="color: #ffc107; text-shadow: 0 0 20px rgba(255, 193, 7, 0.5);">Fuego</span>
+                </h2>
+            </div>
         </div>
     </section>
     {% endif %}
 {% endfor %}
+
+<section class="experience-section" style="background-image: url('{% static 'img/brasas_fondo_section.jpeg' %}');">
+    <div class="container d-flex justify-content-center align-items-center py-5">
+        <div class="experience-card p-5 text-center">
+            <p class="experience-text">
+                Durante dos jornadas el Club Deportivo Alemán se transforma en un gran encuentro social alrededor del fuego.<br><br>
+                Meat & Beer no es una feria gastronómica, sino una experiencia pensada para compartir: brasas encendidas, mesas largas, cerveza bien servida y conversación sin prisa.<br><br>
+                Distintas estaciones de cocina preparan carnes, vegetales y preparaciones a las brasas en vivo, permitiendo a los asistentes recorrer, descubrir y relacionarse directamente con quienes cocinan. La cerveza acompaña el recorrido como parte del ritual, en un ambiente inspirado en el espíritu del biergarten europeo: cercano, cálido y comunitario.<br><br>
+                La música, la iluminación y la ambientación están diseñadas para permanecer, no para pasar rápido. Es un evento para quedarse, encontrarse y disfrutar el tiempo con otros socios y sus invitados.
+            </p>
+            <p class="experience-title mt-4">Meat & Beer propone volver al origen de la vida social del club: reunirse en torno al fuego.</p>
+        </div>
+    </div>
+</section>
 
 <section class="container my-5 py-5">
     <h2 class="text-center text-white mb-5 text-uppercase fw-bold" style="letter-spacing: 2px;">Line Up de Chefs</h2>
@@ -37,16 +51,28 @@
         {% for chef in chefs %}
         <div class="col-6 col-md-4 col-lg-3">
             <div class="card bg-transparent border-0 chef-card text-center">
-                <img src="{{ chef.image.url }}" class="card-img-top rounded-0 mb-3 chef-img" alt="{{ chef.name }}">
+                <img src="{{ chef.image.url }}" class="card-img-top rounded-0 chef-img" alt="{{ chef.name }}">
+                
                 <div class="card-body p-0">
-                    <h5 class="text-white fw-bold mb-0 text-uppercase" style="font-size: 1.1rem;">{{ chef.name }}</h5>
-                    <small class="text-warning text-uppercase" style="font-size: 0.8rem; font-weight: 700;">{{ chef.specialty }}</small>
+                    <div class="chef-name-box">
+                        <h5 class="text-uppercase">{{ chef.name }}</h5>
+                    </div>
+                    <span class="chef-specialty">{{ chef.specialty }}</span>
                 </div>
             </div>
         </div>
         {% empty %}
         <p class="text-center text-muted text-white">Carga tus chefs en el Admin para verlos aquí.</p>
         {% endfor %}
+    </div>
+</section>
+
+<section class="full-width-banner my-5">
+    <div class="container-fluid p-0">
+        <img src="{% static 'img/collage_experiencia.png' %}" 
+             alt="Experiencia Meat and Fire" 
+             class="img-fluid w-100 shadow-lg" 
+             style="height: 500px; object-fit: cover; border-top: 3px solid #ffc107; border-bottom: 3px solid #ffc107;">
     </div>
 </section>
 
