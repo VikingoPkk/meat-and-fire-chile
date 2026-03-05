@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% for section in sections %}
+    {% if section.type == 'HERO' %}
+    <section class="hero-section" style="position: relative; height: 100vh; width: 100%; overflow: hidden; background-color: #000;">
+        
+        {% if section.video_file %}
+            <video autoplay muted loop playsinline class="video-bg" 
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; object-fit: cover; object-position: center;">
+                <source src="{{ section.video_file.url }}" type="video/quicktime">
+                <source src="{{ section.video_file.url }}" type="video/mp4">
+                Tu navegador no soporta videos.
+            </video>
+        {% endif %}
+
+        <div class="hero-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 1;"></div>
+        
+        <div class="container h-100 d-flex flex-column align-items-center justify-content-center text-center" style="position: relative; z-index: 2;">
+            <img src="{% static 'img/logo_meat_fire.png' %}" class="img-fluid mb-4" style="max-width: 280px;" alt="Meat and Fire Logo">
+            
+            <div class="position-absolute bottom-0 mb-5 w-100 text-center">
+    <h2 class="text-white text-uppercase" style="letter-spacing: 8px; font-size: 4.5rem; font-weight: 900; line-height: 1;">
+        La Gastronomía del <span style="color: #ffc107; text-shadow: 0 0 20px rgba(255, 193, 7, 0.5);">Fuego</span>
+    </h2>
+</div>
+        </div>
+    </section>
+    {% endif %}
+{% endfor %}
+
+<section class="container my-5 py-5">
+    <h2 class="text-center text-white mb-5 text-uppercase fw-bold" style="letter-spacing: 2px;">Line Up de Chefs</h2>
+    <div class="row g-4 justify-content-center">
+        {% for chef in chefs %}
+        <div class="col-6 col-md-4 col-lg-3">
+            <div class="card bg-transparent border-0 chef-card text-center">
+                <img src="{{ chef.image.url }}" class="card-img-top rounded-0 mb-3 chef-img" alt="{{ chef.name }}">
+                <div class="card-body p-0">
+                    <h5 class="text-white fw-bold mb-0 text-uppercase" style="font-size: 1.1rem;">{{ chef.name }}</h5>
+                    <small class="text-warning text-uppercase" style="font-size: 0.8rem; font-weight: 700;">{{ chef.specialty }}</small>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p class="text-center text-muted text-white">Carga tus chefs en el Admin para verlos aquí.</p>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="tickets-container" style="background-color: #e3511b; padding: 80px 0;">
+    <div class="container">
+        <h2 class="text-center text-white mb-5 text-uppercase fw-bold" style="font-size: 2.5rem;">Elige cómo vivir Meat and Fire</h2>
+        
+        <div class="row g-4 justify-content-center">
+            {% for ticket in tickets %}
+            <div class="col-md-3">
+                <div class="ticket-card shadow-lg bg-light p-4 text-center" style="border-radius: 0; position: relative;">
+                    <p class="ticket-name mb-1 fw-bold text-uppercase">{{ ticket.name }}</p>
+                    <div class="ticket-price display-4 fw-bold mb-2">{{ ticket.price }}</div>
+                    
+                    <button class="btn btn-danger w-75 mb-3 py-2 fw-bold text-uppercase" style="background-color: #e3511b; border: none;">
+                        COMPRAR
+                    </button>
+                    
+                    <hr style="border-top: 2px dashed #ccc;">
+                    
+                    <div class="dropdown">
+                        <button class="btn btn-sm fw-bold w-100 text-uppercase" type="button" data-bs-toggle="collapse" data-bs-target="#infoTicket{{ ticket.id }}">
+                            Incluye <i class="fas fa-chevron-down ms-1"></i>
+                        </button>
+                        <div class="collapse mt-2 text-start small px-2" id="infoTicket{{ ticket.id }}">
+                            {{ ticket.info|linebreaks }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="subscribe-section py-5" style="background-color: #e3511b; border-top: 1px solid rgba(255,255,255,0.2);">
+    <div class="container text-center text-white">
+        <h2 class="fw-bold text-uppercase mb-3">Suscríbete</h2>
+        <p class="mb-4">Únete a la comunidad Meat & Fire y sé el primero en descubrir lo que viene</p>
+        <form class="row g-2 justify-content-center mx-auto" style="max-width: 700px;">
+            <div class="col-md-4">
+                <input type="text" class="form-control rounded-0 py-2" placeholder="NOMBRE">
+            </div>
+            <div class="col-md-4">
+                <input type="email" class="form-control rounded-0 py-2" placeholder="EMAIL">
+            </div>
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-dark rounded-0 w-100 py-2 fw-bold">ENVIAR</button>
+            </div>
+        </form>
+    </div>
+</section>
+
+{% endblock %}

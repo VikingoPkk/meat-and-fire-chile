@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meat & Fire - Concepción</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <style>
+        .side-menu a {
+            font-family: 'Montserrat', sans-serif;
+            transition: 0.3s;
+        }
+        .side-menu a:hover {
+            color: #000 !important;
+        }
+        .top-bar {
+            font-family: 'Montserrat', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-dark text-white">
+
+    <div class="top-bar py-3 text-center text-uppercase fw-bold fixed-top" 
+     style="background: #000; color: #fff; font-size: 1.6rem; letter-spacing: 4px; z-index: 1001; border-bottom: 1px solid rgba(255,193,7,0.2);">
+    Concepción — 21 · 22 MAR 2026
+</div>
+
+    <nav class="navbar navbar-dark bg-transparent fixed-top" style="margin-top: 75px; z-index: 1000;">
+        <div class="container d-flex justify-content-center align-items-center">
+            <div class="d-flex align-items-center bg-black bg-opacity-25 px-5 py-3 rounded-pill nav-capsule">
+                
+                <button class="navbar-toggler border-0 me-5 p-0" type="button" onclick="document.getElementById('sideMenu').style.width = '100%'">
+                    <i class="fas fa-bars fa-2x text-white"></i>
+                </button>
+                
+                <div class="d-flex me-5 border-start border-end border-white border-opacity-25 px-5">
+                    <a href="#" class="text-white me-4 text-decoration-none"><i class="fab fa-facebook-f fa-lg"></i></a>
+                    <a href="#" class="text-white text-decoration-none"><i class="fab fa-instagram fa-lg"></i></a>
+                </div>
+                
+                <a href="#tickets" class="btn btn-danger fw-bold rounded-pill px-5 py-3 btn-pulse" style="background: #e3511b; border: none; font-size: 1rem; letter-spacing: 1px;">
+                    ENTRADAS
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div id="sideMenu" class="side-menu" style="height: 100%; width: 0; position: fixed; z-index: 2000; top: 0; left: 0; background-color: #e3511b; overflow-x: hidden; transition: 0.5s; display: flex; align-items: center; justify-content: center;">
+        <a href="javascript:void(0)" class="closebtn" onclick="document.getElementById('sideMenu').style.width = '0'" style="position: absolute; top: 20px; left: 30px; font-size: 50px; color: white; text-decoration: none;">&times;</a>
+        
+        <div class="menu-links text-center text-white">
+            <a href="#" class="d-block text-white text-decoration-none my-4 display-4 fw-bold">SUSCRÍBETE</a>
+            <a href="#" class="d-block text-white text-decoration-none my-4 display-4 fw-bold">CONTACTO</a>
+            <a href="#" class="d-block text-white text-decoration-none my-4 display-4 fw-bold">FAQ</a>
+        </div>
+    </div>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer class="py-5 text-center" style="background-color: #e3511b;">
+        <img src="{% static 'img/logo_meat_fire.png' %}" alt="Logo" style="max-width: 150px;" class="mb-4">
+        <div class="container">
+            <ul class="list-inline mb-3">
+                <li class="list-inline-item"><a href="#" class="text-white text-decoration-none small mx-2">POLÍTICA DE COOKIES</a></li>
+                <li class="list-inline-item"><a href="#" class="text-white text-decoration-none small mx-2">AVISO LEGAL</a></li>
+                <li class="list-inline-item"><a href="#" class="text-white text-decoration-none small mx-2">POLÍTICA DE PRIVACIDAD</a></li>
+            </ul>
+            <p class="small mb-0">© 2026 Meat&Fire. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

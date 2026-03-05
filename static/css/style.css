@@ -1,0 +1,179 @@
+/* Configuraciones Generales */
+body {
+    font-family: 'Helvetica', sans-serif;
+    background-color: #0a0a0a; /* Negro profundo */
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Tipografía impactante estilo Meat & Fire */
+h1, h2, h3, h5 {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    font-weight: 900;
+}
+
+/* Sección Hero (Portada) */
+.hero-section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Oscurece la imagen para legibilidad */
+    z-index: 1;
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Estilo para las fotos de los Chefs (Grilla) */
+.chef-card {
+    border: none;
+    background: none;
+    padding: 10px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.chef-card img {
+    filter: grayscale(100%);
+    transition: all 0.5s ease;
+    object-fit: cover;
+    height: 400px;
+    width: 100%;
+    display: block;
+}
+
+.chef-card:hover {
+    transform: scale(1.02);
+}
+
+.chef-card:hover img {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+}
+
+.chef-card h5 {
+    margin-top: 15px;
+    letter-spacing: 1px;
+    font-size: 1.2rem;
+    color: #ffffff;
+}
+
+.chef-card small {
+    color: #ffc107;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* Botones personalizados */
+.btn-outline-light {
+    border-radius: 0;
+    border-width: 2px;
+    padding: 12px 30px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+/* Sección de Tickets */
+.tickets-container {
+    background-color: #e3511b;
+    padding: 60px 0;
+}
+
+.ticket-card {
+    background-color: #fce8a4;
+    color: #000;
+    border: none;
+    border-radius: 0;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    mask-image: radial-gradient(circle at 0 50%, transparent 15px, black 16px), 
+                radial-gradient(circle at 100% 50%, transparent 15px, black 16px);
+    -webkit-mask-image: radial-gradient(circle at 0 50%, transparent 15px, black 16px), 
+                        radial-gradient(circle at 100% 50%, transparent 15px, black 16px);
+}
+
+.ticket-price {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin: 10px 0;
+}
+
+/* --- REGLAS DE ESTÉTICA ACTUALIZADAS --- */
+
+/* Ajuste de tipografía masiva para el Hero */
+.hero-section h2 {
+    letter-spacing: 8px; 
+    font-size: 4.5rem; 
+    font-weight: 900; 
+    line-height: 1;
+    text-shadow: 2px 2px 20px rgba(0,0,0,0.8);
+}
+
+/* Efecto de suavizado para el logo central */
+.hero-section img {
+    filter: drop-shadow(0 0 15px rgba(0,0,0,0.5));
+    transition: transform 0.5s ease;
+}
+
+.hero-section img:hover {
+    transform: scale(1.05);
+}
+
+/* Cápsula de Navegación más grande y con borde amarillo */
+.nav-capsule {
+    backdrop-filter: blur(10px); 
+    border: 2px solid #ffc107; /* Borde amarillo fuego */
+    box-shadow: 0 0 15px rgba(255, 193, 7, 0.3); /* Resplandor amarillo suave */
+}
+
+/* Animación de Pulso para el Botón Entradas */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(227, 81, 27, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(227, 81, 27, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(227, 81, 27, 0);
+    }
+}
+
+.btn-pulse {
+    animation: pulse 2s infinite;
+}
+
+/* Comportamiento en móviles */
+@media (max-width: 768px) {
+    .hero-section h2 {
+        font-size: 1.8rem !important;
+        letter-spacing: 3px !important;
+    }
+    .nav-capsule {
+        padding: 5px 15px !important;
+    }
+    .ticket-price {
+        font-size: 2.5rem;
+    }
+}
