@@ -214,6 +214,26 @@ h1, h2, h3, h5 {
     filter: brightness(1.1);
 }
 
+/* --- SECCIÓN SPONSORS (A TODO COLOR CORREGIDO) --- */
+.sponsors-section {
+    padding-bottom: 80px !important;
+}
+
+.sponsor-logo {
+    max-height: 80px;
+    width: auto;
+    /* Eliminamos escala de grises inicial y opacidad baja */
+    filter: grayscale(0%) brightness(1); 
+    opacity: 1; /* Totalmente visible desde el inicio */
+    transition: all 0.4s ease-in-out;
+}
+
+.sponsor-logo:hover {
+    /* Mantenemos el efecto de aumento sutil al pasar el mouse */
+    transform: scale(1.1); 
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); /* Un brillo muy sutil */
+}
+
 @keyframes pulse {
     0% { box-shadow: 0 0 0 0 rgba(227, 81, 27, 0.7); }
     70% { box-shadow: 0 0 0 10px rgba(227, 81, 27, 0); }
@@ -239,5 +259,9 @@ h1, h2, h3, h5 {
     }
     .ticket-price {
         font-size: 2.5rem;
+    }
+    .sponsor-logo {
+        max-height: 50px;
+        margin-bottom: 20px;
     }
 }
